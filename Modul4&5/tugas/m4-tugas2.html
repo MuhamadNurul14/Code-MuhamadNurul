@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Kamar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">Form Data Kamar</div>
+        <div class="form-group">
+            <label for="idKamar">Id Kamar</label>
+            <input type="text" id="idKamar" name="idKamar" value="1234">
+        </div>
+        <div class="form-group">
+            <label for="gambarRuangan">Gambar Ruangan</label>
+            <input type="file" id="gambarRuangan" name="gambarRuangan">
+        </div>
+        <div class="form-group">
+            <label for="jenisKamar">Jenis Kamar</label>
+            <select id="jenisKamar" name="jenisKamar">
+                <option value="Deluxe">Deluxe</option>
+                <option value="Standard">Standard</option>
+                <option value="Suite">Suite</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga</label>
+            <input type="text" id="harga" name="harga" value="500000">
+        </div>
+        <div class="form-group">
+            <label>Fasilitas</label>
+            <div class="facilities">
+                <label><input type="checkbox" name="fasilitas" value="WiFi"> WiFi</label>
+                <label><input type="checkbox" name="fasilitas" value="AC"> AC</label>
+                <label><input type="checkbox" name="fasilitas" value="TV"> TV</label>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <button class="save">SIMPAN</button>
+            <button class="cancel">BATAL</button>
+        </div>
+    </div>
+    <div class="validation-header">Validasi Data Kamar</div>
+    <div class="validation-data">
+        <p>Id Kamar: <span id="val-idKamar">1234</span></p>
+        <p>Gambar Ruangan: <img id="val-gambarRuangan" src="" alt="Gambar Ruangan"></p>
+        <p>Jenis Kamar: <span id="val-jenisKamar">Deluxe</span></p>
+        <p>Harga: <span id="val-harga">500000</span></p>
+        <p>Fasilitas: <span id="val-fasilitas">WiFi, AC, TV</span></p>
+        <div class="validation-buttons">
+            <button class="confirm">KONFIRMASI</button>
+            <button class="edit">EDIT</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
