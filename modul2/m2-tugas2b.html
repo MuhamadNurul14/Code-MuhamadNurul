@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Fasilitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 800px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-actions .save-btn {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .form-actions .cancel-btn {
+            background-color: #ffc107;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Tambah Data Fasilitas</h2>
+        <form method="post" action="submit_fasilitas.html">
+            <div class="form-group">
+                <label for="id_fasilitas">ID Fasilitas:</label>
+                <input type="text" id="id_fasilitas" name="id_fasilitas" required>
+            </div>
+            <div class="form-group">
+                <label for="nama_fasilitas">Nama Fasilitas:</label>
+                <input type="text" id="nama_fasilitas" name="nama_fasilitas" required>
+            </div>
+            <div class="form-group">
+                <label for="harga_weekend">Harga Weekend:</label>
+                <input type="number" id="harga_weekend" name="harga_weekend" required>
+            </div>
+            <div class="form-group">
+                <label for="harga_weekday">Harga Weekday:</label>
+                <input type="number" id="harga_weekday" name="harga_weekday" required>
+            </div>
+            <div class="form-group">
+                <label for="kuota">Kuota:</label>
+                <input type="number" id="kuota" name="kuota" required>
+            </div>
+            <div class="form-group">
+                <label for="jam_buka">Jam Buka:</label>
+                <input type="time" id="jam_buka" name="jam_buka" required>
+            </div>
+            <div class="form-group">
+                <label for="jam_tutup">Jam Tutup:</label>
+                <input type="time" id="jam_tutup" name="jam_tutup" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="save-btn">SIMPAN</button>
+                <button type="reset" class="cancel-btn">BATAL</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

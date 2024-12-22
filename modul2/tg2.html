@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 | Tambah Data dan Pilih Kamar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        table td {
+            padding: 10px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        select, input[type="text"], input[type="number"], input[type="time"], textarea {
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .room-image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .room-image {
+            text-align: center;
+            width: 200px;
+        }
+        .room-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .room-image label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .room-price {
+            margin-top: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .price-explanation {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pilih Kamar</h1>
+
+    <!-- Penjelasan Harga -->
+    <div class="price-explanation">
+        <p><strong>Penjelasan Harga Kamar:</strong></p>
+        <p>Berikut adalah harga untuk masing-masing jenis kamar:</p>
+        <ul>
+            <li><strong>Standard Room:</strong> Rp 500,000 per malam</li>
+            <li><strong>Deluxe Room:</strong> Rp 750,000 per malam</li>
+            <li><strong>Suite Room:</strong> Rp 1,000,000 per malam</li>
+        </ul>
+        <p>Harga dapat bervariasi tergantung pada tanggal dan fasilitas tambahan.</p>
+    </div>
+
+    <!-- Display Room Images and Names (Hanya 3 Kamar) -->
+    <div class="room-image-container">
+        <div class="room-image">
+            <img src="https://via.placeholder.com/300x200?text=Standard+Room" alt="Standard Room">
+            <label>Standard Room</label>
+            <div class="room-price">Rp 500,000</div>
+        </div>
+
+        <div class="room-image">
+            <img src="https://via.placeholder.com/300x200?text=Deluxe+Room" alt="Deluxe Room">
+            <label>Deluxe Room</label>
+            <div class="room-price">Rp 750,000</div>
+        </div>
+
+        <div class="room-image">
+            <img src="https://via.placeholder.com/300x200?text=Suite+Room" alt="Suite Room">
+            <label>Suite Room</label>
+            <div class="room-price">Rp 1,000,000</div>
+        </div>
+    </div>
+
+    <!-- Form untuk Pemilihan Kamar -->
+    <h2>Isi Formulir Pilih Kamar</h2>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td><label for="roomId">ID Kamar: </label></td>
+                <td><input type="number" name="roomId" id="roomId" placeholder="Masukkan ID Kamar" required></td>
+            </tr>
+            <tr>
+                <td><label for="roomType">Jenis Kamar: </label></td>
+                <td>
+                    <select name="roomType" id="roomType" required>
+                        <option value="standard">Standard Room</option>
+                        <option value="deluxe">Deluxe Room</option>
+                        <option value="suite">Suite Room</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="roomPrice">Harga Kamar: </label></td>
+                <td>
+                    <select name="roomPrice" id="roomPrice" required>
+                        <option value="500000">Rp 500,000</option>
+                        <option value="750000">Rp 750,000</option>
+                        <option value="1000000">Rp 1,000,000</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="roomFacilities">Fasilitas Kamar: </label></td>
+                <td>
+                    <input type="checkbox" id="wifi" name="roomFacilities" value="wifi">
+                    <label for="wifi">Wi-Fi</label>
+                    <input type="checkbox" id="ac" name="roomFacilities" value="ac">
+                    <label for="ac">AC</label>
+                    <input type="checkbox" id="tv" name="roomFacilities" value="tv">
+                    <label for="tv">TV</label>
+                    <input type="checkbox" id="miniBar" name="roomFacilities" value="miniBar">
+                    <label for="miniBar">Mini Bar</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit">Pilih Kamar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

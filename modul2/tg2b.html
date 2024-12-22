@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 | Tambah Data Fasilitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+        table td, table th {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        input[type="text"], input[type="number"], input[type="time"], textarea, select {
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Daftar Fasilitas yang Tersedia</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Fasilitas</th>
+                <th>Nama Fasilitas</th>
+                <th>Fasilitas</th>
+                <th>Harga Weekend</th>
+                <th>Harga Weekday</th>
+                <th>Kuota</th>
+                <th>Jam Buka</th>
+                <th>Jam Tutup</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Contoh Data Fasilitas -->
+            <tr>
+                <td>1</td>
+                <td>Kolam Renang</td>
+                <td>Kolam</td>
+                <td>Rp. 200,000</td>
+                <td>Rp. 150,000</td>
+                <td>10</td>
+                <td>08:00</td>
+                <td>20:00</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Sauna Relax</td>
+                <td>Sauna</td>
+                <td>Rp. 250,000</td>
+                <td>Rp. 200,000</td>
+                <td>8</td>
+                <td>09:00</td>
+                <td>21:00</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Fitness Center</td>
+                <td>Gym</td>
+                <td>Rp. 150,000</td>
+                <td>Rp. 120,000</td>
+                <td>15</td>
+                <td>06:00</td>
+                <td>22:00</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h1>Tambah Data Fasilitas</h1>
+    <h2>Masukkan Informasi Fasilitas</h2>
+    <form action="" method="post">
+        <table border="0">
+            <tr>
+                <td><label for="fasilitasId">ID Fasilitas: </label></td>
+                <td><input type="number" name="fasilitasId" id="fasilitasId" placeholder="Masukkan ID Fasilitas" required></td>
+            </tr>
+            <tr>
+                <td><label for="fasilitasName">Nama Fasilitas: </label></td>
+                <td><input type="text" name="fasilitasName" id="fasilitasName" placeholder="Masukkan Nama Fasilitas" required></td>
+            </tr>
+            <tr>
+                <td><label for="fasilitas">Fasilitas: </label></td>
+                <td>
+                    <select name="fasilitas" id="fasilitas" required>
+                        <option value="kolam">Kolam</option>
+                        <option value="sauna">Sauna</option>
+                        <option value="gym">Gym</option>
+                        <option value="spa">Spa</option>
+                        <option value="restaurant">Restaurant</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="hweekend">Harga Weekend: </label></td>
+                <td>Rp. <input type="number" name="hweekend" id="hweekend" placeholder="Masukkan Harga Weekend" required> Malam</td>
+            </tr>
+            <tr>
+                <td><label for="hweekday">Harga Weekday: </label></td>
+                <td>Rp. <input type="number" name="hweekday" id="hweekday" placeholder="Masukkan Harga Weekday" required> Malam</td>
+            </tr>
+            <tr>
+                <td><label for="kuota">Kuota: </label></td>
+                <td><input type="number" name="kuota" id="kuota" placeholder="Masukkan Jumlah Kuota" required></td>
+            </tr>
+            <tr>
+                <td><label for="jbuka">Jam Buka: </label></td>
+                <td><input type="time" id="jbuka" name="jbuka" required></td>
+            </tr>
+            <tr>
+                <td><label for="jtutup">Jam Tutup: </label></td>
+                <td><input type="time" name="jtutup" id="jtutup" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit">Masukkan Fasilitas</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

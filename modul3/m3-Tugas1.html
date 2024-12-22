@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Data Nilai Mata Kuliah</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<form action="submit_data.php" method="POST">
+    <h2>Tambah Data Nilai Mata Kuliah</h2>
+    
+    <table border="0">
+        <tr>
+            <td><label for="ID">Id Pesanan:</label></td>
+            <td><input type="number" id="id" name="id" required/></td>
+        </tr>
+        <tr>
+            <td><label for="nama">Nama pesanan:</label></td>
+            <td><input type="text" id="nama" name="nama" required/></td>
+        </tr>
+        <tr>
+            <td><label for="nomor">Nomor Identitas:</label></td>
+            <td><input type="number" id="nomor" name="nomor" required/></td>
+        </tr>
+        <tr>
+            <td><label for="kamar">Tipe kamar:</label></td>
+            <td>
+                <select name="kamar" id="kamar" required>
+                    <option value="">--Pilih--</option>
+                    <option value="STANDAR">STANDAR</option>
+                    <option value="DELUXE">DELUXE</option>
+                    <option value="FAMILY">FAMILY</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="harga">Harga:</label></td>
+            <td><input type="number" id="harga" name="harga" step="0.01" min="0" required/></td>
+        </tr>
+        <tr>
+            <td><label for="Tanggal">Tanggal pesan:</label></td>
+            <td><input type="date" id="Tanggal" name="Tanggal" required/></td>
+        </tr>
+        <tr>
+            <td><label for="Durasi">Durasi menginap:</label></td>
+            <td>
+                <input type="number" id="Durasi" name="Durasi" class="small-input" required/>
+                <span>Hari</span>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="sarapan">Termasuk breakfast:</label></td>
+            <td>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sarapan" name="sarapan"><span>ya</span>
+                    <input type="checkbox" id="sarapan" name="sarapan"><span>tidak</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="bayar">Total Bayar:</label></td>
+            <td><input type="number" id="bayar" name="bayar" step="0.01" min="0" required/></td>
+        </tr>
+    </table>
+
+    <div class="button-group">
+        <button type="submit" class="simpan">Simpan Data</button>
+        <button type="reset" name="cancel" value="batal" class="batal">BATAL</button>
+    </div>
+</form>
+
+</body>
+</html>
