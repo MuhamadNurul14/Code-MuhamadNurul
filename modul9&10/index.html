@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dan Form Pemesanan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 98%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .form-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .form-container .button-container button {
+            width: 48%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-container .button-container button#reset {
+            background-color: #dc3545;
+        }
+
+        .form-container .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container .button-container button#reset:hover {
+            background-color: #c82333;
+        }
+
+        .booking-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 98%;
+            max-width: 1200px;
+            height: 100%;
+            overflow-y: auto;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .booking-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .booking-form label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .booking-form input,
+        .booking-form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .booking-form .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .booking-form .checkbox-container label {
+            margin-right: 10px;
+            margin-top: 0;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            width: 48%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-container button#cancel {
+            background-color: #dc3545;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container button#cancel:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container" id="loginForm">
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+
+            <div class="button-container">
+                <button id="login">Login</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+
+        <div class="booking-form" id="bookingForm">
+            <h2>Form Pemesanan</h2>
+            <label for="bookingId">Id Pemesan:</label>
+            <input type="text" id="bookingId" value="1" readonly>
+
+            <label for="name">Nama Pemesan:</label>
+            <input type="text" id="name">
+
+            <label for="identityNumber">Nomor Identitas:</label>
+            <input type="text" id="identityNumber">
+
+            <label for="roomType">Tipe Kamar:</label>
+            <select id="roomType">
+                <option value="">Pilih</option>
+                <option value="STANDARD">STANDARD</option>
+                <option value="DELUXE">DELUXE</option>
+                <option value="FAMILY">FAMILY</option>
+            </select>
+
+            <label for="price">Harga:</label>
+            <input type="text" id="price" readonly>
+
+            <label for="bookingDate">Tanggal Pesan:</label>
+            <input type="date" id="bookingDate">
+
+            <label for="duration">Durasi Menginap:</label>
+            <input type="number" id="duration" value="1">
+
+            <label for="breakfast">Termasuk Breakfast:</label>
+            <input type="checkbox" id="breakfast">
+
+            <label for="total">Total Bayar:</label>
+            <input type="text" id="total" readonly>
+
+            <div class="button-container">
+                <button id="save">Simpan</button>
+                <button id="cancel">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./../JS/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            const roomPrices = {
+                "STANDARD": 250000,
+                "DELUXE": 350000,
+                "FAMILY": 500000
+            };
+
+            $('#roomType').change(function() {
+                const roomType = $(this).val();
+                const price = roomPrices[roomType] || 0;
+                $('#price').val(price);
+            });
+
+            $('#save').click(function() {
+                const price = parseFloat($('#price').val());
+                const duration = parseInt($('#duration').val());
+                const breakfast = $('#breakfast').is(':checked') ? 80000 : 0;
+                
+                const total = (price * duration) + breakfast;
+                $('#total').val(total);
+
+                alert('Data disimpan!');
+            });
+
+            $('#cancel').click(function() {
+                // Reset form fields
+                $('#bookingId').val('1');
+                $('#name').val('');
+                $('#identityNumber').val('');
+                $('#roomType').val('');
+                $('#price').val('');
+                $('#bookingDate').val('');
+                $('#duration').val('1');
+                $('#breakfast').prop('checked', false);
+                $('#total').val('');
+            });
+
+            $('#identityNumber').on('input', function() {
+                const idNumber = $(this).val();
+                if (idNumber.length !== 16) {
+                    alert('Nomor Identitas harus 16 digit');
+                }
+            });
+
+            // Login button click handler
+            $('#login').click(function() {
+                const username = $('#username').val();
+                const password = $('#password').val();
+                // Perform login logic here
+                if (username === "user123" && password === "admin123") {
+                    alert('Login successful!');
+                    $('#loginForm').hide();
+                    $('#bookingForm').show();
+                } else {
+                    alert('Username atau password salah!');
+                }
+            });
+
+            // Reset button click handler
+            $('#reset').click(function() {
+                $('#username').val('');
+                $('#password').val('');
+            });
+        });
+    </script>
+</body>
+</html>
